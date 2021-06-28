@@ -2,15 +2,30 @@ plugins {
     id 'com.android.library'
 }
 
+def gitBranch() {
+    return "git -C \"${project.rootDir.toString()}\" branch --show-current".execute().text.trim()
+}
+
+def versionMajor = 0
+def versionMinor = 1
+def gitVersion() {
+    def process = "git -C \"${project.rootDir.toString()}\" rev-list --count --first-parent main".execute()
+    return process.text.trim().toInteger()
+}
+
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.3"
 
     defaultConfig {
+        def gb = gitBranch()
         minSdkVersion 16
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode gitVersion()
+        if (gb == "main") {
+            versionName = "${versionMajor}.${versionMinor}.${versionCode}"
+        } else {
+            versionName = "${versionMajor}.${versionMinor}.${versionCode}-${gb}"
+        }
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -30,9 +45,12 @@ android {
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.2.1'
-    testImplementation 'junit:junit:4.+'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'com.caverock:androidsvg-aar:1.4'
+    implementation 'org.jetbrains:annotations:15.0'
+    compileOnly files('libs/godot-lib.aar')
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }

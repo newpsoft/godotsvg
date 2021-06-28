@@ -1,0 +1,9 @@
+[config]
+
+name="GodotSvg"
+binary_type="local"
+binary="GodotSvg.aar"
+
+[dependencies]
+
+remote=["com.caverock:androidsvg-aar:1.4"]

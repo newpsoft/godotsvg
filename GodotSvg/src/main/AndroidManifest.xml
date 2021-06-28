@@ -2,4 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="newpsoft.godotsvg">
 
+    <application>
+        <meta-data
+            android:name="org.godotengine.plugin.v1.GodotSvg"
+            android:value="newpsoft.godotsvg.GodotSvg" />
+    </application>
 </manifest>
