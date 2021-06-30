@@ -2,7 +2,7 @@
 
 name="GodotSvg"
 binary_type="local"
-binary="GodotSvg.aar"
+binary="GodotSvg-release.aar"
 
 [dependencies]
 
