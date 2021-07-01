@@ -32,12 +32,12 @@ func file_to_png(file_path, width = 0, height = 0) -> Dictionary:
 	document declared size.  If the document also has no size declared we fallback to a small
 	square.
 
-	\param file_path Local file path.  A file URI will not work.
-	\param width    Absolute pixel width we want to draw into.  A value of 0 will default to what
+	@param file_path Local file path.  A file URI will not work.
+	@param width    Absolute pixel width we want to draw into.  A value of 0 will default to what
 			is declared in the SVG document.
-	\param height   Absolute pixel height we want to draw into.  A value of 0 will default to what
+	@param height   Absolute pixel height we want to draw into.  A value of 0 will default to what
 			is declared in the SVG document.
-	\return Map possible value types: {"success": Boolean, "value": byte[], "error": String}
+	@return Map possible value types: {"success": Boolean, "value": byte[], "error": String}
 	"""
 	if _singleton:
 		return _singleton.fileToPng(file_path, width, height)
@@ -51,12 +51,12 @@ func resource_to_png(resource_id, width = 0, height = 0) -> Dictionary:
 	document declared size.  If the document also has no size declared we fallback to a small
 	square.
 
-	\param resource_id Resource ID of the resource to read from, e.g. R.raw.filename_svg
-	\param width      Absolute pixel width we want to draw into.  A value of 0 will default to what
+	@param resource_id Resource ID of the resource to read from, e.g. R.raw.filename_svg
+	@param width      Absolute pixel width we want to draw into.  A value of 0 will default to what
 			  is declared in the SVG document.
-	\param height     Absolute pixel height we want to draw into.  A value of 0 will default to what
+	@param height     Absolute pixel height we want to draw into.  A value of 0 will default to what
 			  is declared in the SVG document.
-	\return Map possible value types: {"success": Boolean, "value": byte[], "error": String}
+	@return Map possible value types: {"success": Boolean, "value": byte[], "error": String}
 	"""
 	if _singleton:
 		return _singleton.resourceToPng(resource_id, width, height)
@@ -70,12 +70,12 @@ func asset_to_png(asset_path, width = 0, height = 0) -> Dictionary:
 	document declared size.  If the document also has no size declared we fallback to a small
 	square.
 
-	\param asset_path Asset path to the SVG file, e.g. "images/filename.svg"
-	\param width     Absolute pixel width we want to draw into.  A value of 0 will default to what
+	@param asset_path Asset path to the SVG file, e.g. "images/filename.svg"
+	@param width     Absolute pixel width we want to draw into.  A value of 0 will default to what
 			 is declared in the SVG document.
-	\param height    Absolute pixel height we want to draw into.  A value of 0 will default to what
+	@param height    Absolute pixel height we want to draw into.  A value of 0 will default to what
 			 is declared in the SVG document.
-	\return Map possible value types: {"success": Boolean, "value": byte[], "error": String}
+	@return Map possible value types: {"success": Boolean, "value": byte[], "error": String}
 	"""
 	if _singleton:
 		return _singleton.assetToPng(asset_path, width, height)
